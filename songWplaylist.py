@@ -36,12 +36,12 @@ def makeplaylist():
     global playlist, songqueue
     playlist= songqueue.copy()
     data = list(playlist)
-    with open("E:\\AB\\admcode\\mp3_decoder\\playlist.json","w") as f:
+    with open("E:\\filepath_here\\playlist.json","w") as f:
         json.dump(data,f)
 
 def playFromplaylist():
     global songqueue
-    with open("E:\\AB\\admcode\\mp3_decoder\\playlist.json","r") as f:
+    with open("E:\\filepath_here\\playlist.json","r") as f:
         data = json.load(f)
     songqueue = deque(data)
     playerlab = tk.Label(text="Playing a playlist")
@@ -67,4 +67,5 @@ turnintoplaylist = tk.Button(root,command=makeplaylist,text="Turn this into a pl
 turnintoplaylist.pack()
 playlistplayer = tk.Button(root, command=playFromplaylist, text="Play last playlist")
 playlistplayer.pack()
+
 root.mainloop()
